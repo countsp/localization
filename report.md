@@ -113,31 +113,30 @@
         以地球质心为原点，固定在地球上，随地球旋转。
         通常用 X、Y、Z 坐标表示位置。
 
-转换方式
-
-> // 将经纬度数据转换成ecef坐标系下的坐标
-> Eigen::Vector3d LatLongAltToEcef(const double latitude, const double longitude,
->                                  const double altitude) {
->   // note: 地固坐标系(Earth-Fixed Coordinate System)也称地球坐标系, 
->   // 是固定在地球上与地球一起旋转的坐标系.
->   // 如果忽略地球潮汐和板块运动, 地面上点的坐标值在地固坐标系中是固定不变的.
->
->   // https://en.wikipedia.org/wiki/Geographic_coordinate_conversion#From_geodetic_to_ECEF_coordinates
+**转换方式**
+> // 将经纬度数据转换成ecef坐标系下的坐标  
+> Eigen::Vector3d LatLongAltToEcef(const double latitude, const double longitude,  
+>                                  const double altitude) {  
+>   // note: 地固坐标系(Earth-Fixed Coordinate System)也称地球坐标系,   
+>   // 是固定在地球上与地球一起旋转的坐标系.  
+>   // 如果忽略地球潮汐和板块运动, 地面上点的坐标值在地固坐标系中是固定不变的.  
+> 
+>   // https://en.wikipedia.org/wiki/Geographic_coordinate_conversion#From_geodetic_to_ECEF_coordinates  
 >   
->   constexpr double a = 6378137.;  // semi-major axis, equator to center.
->   constexpr double f = 1. / 298.257223563;
->   constexpr double b = a * (1. - f);  // semi-minor axis, pole to center.
->   constexpr double a_squared = a * a;
->   constexpr double b_squared = b * b;
->   constexpr double e_squared = (a_squared - b_squared) / a_squared;
->   const double sin_phi = std::sin(cartographer::common::DegToRad(latitude));
->   const double cos_phi = std::cos(cartographer::common::DegToRad(latitude));
->   const double sin_lambda = std::sin(cartographer::common::DegToRad(longitude));
->   const double cos_lambda = std::cos(cartographer::common::DegToRad(longitude));
->   const double N = a / std::sqrt(1 - e_squared * sin_phi * sin_phi);
->   const double x = (N + altitude) * cos_phi * cos_lambda;
->   const double y = (N + altitude) * cos_phi * sin_lambda;
->   const double z = (b_squared / a_squared * N + altitude) * sin_phi;
->
->   return Eigen::Vector3d(x, y, z);
+>   constexpr double a = 6378137.;  // semi-major axis, equator to center.  
+>   constexpr double f = 1. / 298.257223563;  
+>   constexpr double b = a * (1. - f);  // semi-minor axis, pole to center.  
+>   constexpr double a_squared = a * a;  
+>   constexpr double b_squared = b * b;  
+>   constexpr double e_squared = (a_squared - b_squared) / a_squared;  
+>   const double sin_phi = std::sin(cartographer::common::DegToRad(latitude));  
+>   const double cos_phi = std::cos(cartographer::common::DegToRad(latitude));  
+>   const double sin_lambda = std::sin(cartographer::common::DegToRad(longitude));  
+>   const double cos_lambda = std::cos(cartographer::common::DegToRad(longitude));  
+>   const double N = a / std::sqrt(1 - e_squared * sin_phi * sin_phi);  
+>   const double x = (N + altitude) * cos_phi * cos_lambda;  
+>   const double y = (N + altitude) * cos_phi * sin_lambda;  
+>   const double z = (b_squared / a_squared * N + altitude) * sin_phi;  
+> 
+>   return Eigen::Vector3d(x, y, z);  
 > }
