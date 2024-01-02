@@ -94,8 +94,11 @@
 > \# 1 - 如果只有“精度稀释”可用，请据此估计近似协方差。
 >  
 > **uint8 COVARIANCE_TYPE_UNKNOWN = 0**
+> 
 > **uint8 COVARIANCE_TYPE_APPROXIMATED = 1**
+> 
 > **uint8 COVARIANCE_TYPE_DIAGONAL_KNOWN = 2**
+> 
 > **uint8 COVARIANCE_TYPE_KNOWN = 3**
 >  
 > **uint8 position_covariance_type**
