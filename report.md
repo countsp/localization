@@ -59,23 +59,23 @@
 > \# header.frame_id 是卫星接收器报告的坐标系，通常是GPS天线的位置。
 > \# 这是相对于车辆(中心)的欧几里得坐标变换，而不是参考椭球坐标系。
 >  
-> Header header
+> **Header header**
 >  
 > \# satellite fix status information    卫星定位状态信息
-> NavSatStatus status
+> **NavSatStatus status**
 >  
 > \# Latitude [degrees]. Positive is north of equator; negative is south.
 > \# 纬度[度]。 正数位于赤道以北； 负面是南方。
-> float64 latitude
+> **float64 latitude**
 >  
 > \# Longitude [degrees]. Positive is east of prime meridian; negative is west.
 > \# 经度[度]。 正数位于本初子午线以东； 负面是西方。
-> float64 longitude
+> **float64 longitude**
 >  
 > \# Altitude [m]. Positive is above the WGS 84 ellipsoid
 > \# (quiet NaN if no altitude is available).
 > \# 海拔[m]。 正值高于WGS 84椭球（如果没有可用的海拔高度，则为NaN）。
-> float64 altitude
+> **float64 altitude**
 >  
 > \# Position covariance [m^2] defined relative to a tangential plane
 > \# through the reported position. The components are East, North, and
@@ -85,7 +85,7 @@
 > \# Beware: this coordinate system exhibits singularities at the poles.
 > \# 注意：此坐标系在极点处表现出奇异性。
 >  
-> float64[9] position_covariance
+> **float64[9] position_covariance**
 >  
 > \# If the covariance of the fix is known, fill it in completely. If the
 > \# GPS receiver provides the variance of each measurement, put them
@@ -95,9 +95,9 @@
 > \# 2 - 如果GPS接收器提供了每次测量的方差，请将其沿对角线放置。
 > \# 1 - 如果只有“精度稀释”可用，请据此估计近似协方差。
 >  
-> uint8 COVARIANCE_TYPE_UNKNOWN = 0
-> uint8 COVARIANCE_TYPE_APPROXIMATED = 1
-> uint8 COVARIANCE_TYPE_DIAGONAL_KNOWN = 2
-> uint8 COVARIANCE_TYPE_KNOWN = 3
+> **uint8 COVARIANCE_TYPE_UNKNOWN = 0**
+> **uint8 COVARIANCE_TYPE_APPROXIMATED = 1**
+> **uint8 COVARIANCE_TYPE_DIAGONAL_KNOWN = 2**
+> **uint8 COVARIANCE_TYPE_KNOWN = 3**
 >  
-> uint8 position_covariance_type
+> **uint8 position_covariance_type**
