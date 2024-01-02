@@ -42,60 +42,64 @@
   
 ![navsat](https://img-blog.csdnimg.cn/9386c260c42b4549be742bb1381dd8dd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2m5peg5q2i5aKD55qE5bCP6b6f,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
-> #### 使用 WGS 84 坐标系
-> # Navigation Satellite fix for any Global Navigation Satellite System
-> #
-> # Specified using the WGS 84 reference ellipsoid
-> # 使用 WGS 84 坐标系
+
+> <!-- Navigation Satellite fix for any Global Navigation Satellite System -->
+> <!-- -->
+> <!-- Specified using the WGS 84 reference ellipsoid -->
+> <!-- 使用 WGS 84 坐标系 -->
 >  
-> # header.stamp specifies the ROS time for this measurement (the
-> #        corresponding satellite time may be reported using the
-> #        sensor_msgs/TimeReference message).
-> # header.stamp指定此测量的ROS时间（可以使用sensor_msgs/TimeReference消息报告相应的卫星时间）
-> #
-> # header.frame_id is the frame of reference reported by the satellite
-> #        receiver, usually the location of the antenna.  This is a
-> #        Euclidean frame relative to the vehicle, not a reference
-> #        ellipsoid.
-> # header.frame_id 是卫星接收器报告的坐标系，通常是GPS天线的位置。
-> # 这是相对于车辆(中心)的欧几里得坐标变换，而不是参考椭球坐标系。
+> <!-- header.stamp specifies the ROS time for this measurement (the -->
+> <!--        corresponding satellite time may be reported using the -->
+> <!--        sensor_msgs/TimeReference message). -->
+> <!-- header.stamp指定此测量的ROS时间（可以使用sensor_msgs/TimeReference消息报告相应的卫星时间） -->
+> <!-- -->
+> <!-- header.frame_id is the frame of reference reported by the satellite -->
+> <!--        receiver, usually the location of the antenna.  This is a -->
+> <!--        Euclidean frame relative to the vehicle, not a reference -->
+> <!--        ellipsoid. -->
+> <!-- header.frame_id 是卫星接收器报告的坐标系，通常是GPS天线的位置。 -->
+> <!-- 这是相对于车辆(中心)的欧几里得坐标变换，而不是参考椭球坐标系。 -->
 >  
 > Header header
 >  
-> # satellite fix status information    卫星定位状态信息
+> <!-- satellite fix status information    卫星定位状态信息 -->
 > NavSatStatus status
 >  
-> # Latitude [degrees]. Positive is north of equator; negative is south.
-> # 纬度[度]。 正数位于赤道以北； 负面是南。
+> <!-- Latitude [degrees]. Positive is north of equator; negative is south. -->
+> <!-- 纬度[度]。 正数位于赤道以北； 负面是南方。 -->
 > float64 latitude
 >  
-> # Longitude [degrees]. Positive is east of prime meridian; negative is west.
-> # 经度[度]。 正数位于本初子午线以东； 负面是西方。
+> <!-- Longitude [degrees]. Positive is east of prime meridian; negative is west. -->
+> <!-- 经度[度]。 正数位于本初子午线以东； 负面是西方。 -->
 > float64 longitude
 >  
-> # Altitude [m]. Positive is above the WGS 84 ellipsoid
-> # (quiet NaN if no altitude is available).
-> # 海拔[m]。 正值高于WGS 84椭球（如果没有可用的海拔高度，则为NaN）。
+> <!-- Altitude [m]. Positive is above the WGS 84 ellipsoid -->
+> <!-- (quiet NaN if no altitude is available). -->
+> <!-- 海拔[m]。 正值高于WGS 84椭球（如果没有可用的海拔高度，则为NaN）。 -->
 > float64 altitude
 >  
-> # Position covariance [m^2] defined relative to a tangential plane
-> # through the reported position. The components are East, North, and
-> # Up (ENU), in row-major order.
-> # 位置协方差[m ^ 2]: 相对于切线平面的位置协方差。 组件是East，North和Up（ENU），按行优先顺序排列。
-> #
-> # Beware: this coordinate system exhibits singularities at the poles.
-> # 注意：此坐标系在极点处表现出奇异性。
+> <!-- Position covariance [m^2] defined relative to a tangential plane -->
+> <!-- through the reported position. The components are East, North, and -->
+> <!-- Up (ENU), in row-major order. -->
+> <!-- 位置协方差[m ^ 2]: 相对于切线平面的位置协方差。 组件是East，North和Up（ENU），按行优先顺序排列。 -->
+> <!-- -->
+> <!-- Beware: this coordinate system exhibits singularities at the poles. -->
+> <!-- 注意：此坐标系在极点处表现出奇异性。 -->
 >  
 > float64[9] position_covariance
 >  
-> # If the covariance of the fix is known, fill it in completely. If the
-> # GPS receiver provides the variance of each measurement, put them
-> # along the diagonal. If only Dilution of Precision is available,
-> # estimate an approximate covariance from that.
-> # 3 - 如果已知修正的协方差，请完全填写。
-> # 2 - 如果GPS接收器提供了每次测量的方差，请将其沿对角线放置。
-> # 1 - 如果只有“精度稀释”可用，请据此估计近似协方
-
- 
-uint8 position_covariance_type
+> <!-- If the covariance of the fix is known, fill it in completely. If the -->
+> <!-- GPS receiver provides the variance of each measurement, put them -->
+> <!-- along the diagonal. If only Dilution of Precision is available, -->
+> <!-- estimate an approximate covariance from that. -->
+> <!-- 3 - 如果已知修正的协方差，请完全填写。 -->
+> <!-- 2 - 如果GPS接收器提供了每次测量的方差，请将其沿对角线放置。 -->
+> <!-- 1 - 如果只有“精度稀释”可用，请据此估计近似协方差。 -->
+>  
+> uint8 COVARIANCE_TYPE_UNKNOWN = 0
+> uint8 COVARIANCE_TYPE_APPROXIMATED = 1
+> uint8 COVARIANCE_TYPE_DIAGONAL_KNOWN = 2
+> uint8 COVARIANCE_TYPE_KNOWN = 3
+>  
+> uint8 position_covariance_type
 
