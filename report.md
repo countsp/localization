@@ -43,19 +43,15 @@
 ![navsat](https://img-blog.csdnimg.cn/9386c260c42b4549be742bb1381dd8dd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2m5peg5q2i5aKD55qE5bCP6b6f,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
 
 > \# Navigation Satellite fix for any Global Navigation Satellite System
+> 
 > \#
-> \# Specified using the WGS 84 reference ellipsoid
+> 
 > \# 使用 WGS 84 坐标系
 >  
-> \# header.stamp specifies the ROS time for this measurement (the
-> \#        corresponding satellite time may be reported using the
-> \#        sensor_msgs/TimeReference message).
+> \# header.stamp specifies the ROS time for this measurement (the corresponding satellite time may be reported using the sensor_msgs/TimeReference message).
 > \# header.stamp指定此测量的ROS时间（可以使用sensor_msgs/TimeReference消息报告相应的卫星时间）
 > \#
-> \# header.frame_id is the frame of reference reported by the satellite
-> \#        receiver, usually the location of the antenna.  This is a
-> \#        Euclidean frame relative to the vehicle, not a reference
-> \#        ellipsoid.
+> \# header.frame_id is the frame of reference reported by the satellite receiver, usually the location of the antenna.  This is a Euclidean frame relative to the vehicle, not a reference ellipsoid.
 > \# header.frame_id 是卫星接收器报告的坐标系，通常是GPS天线的位置。
 > \# 这是相对于车辆(中心)的欧几里得坐标变换，而不是参考椭球坐标系。
 >  
