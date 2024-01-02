@@ -1,4 +1,4 @@
-## cartographer中global pose 和local pose 区别是什么
+## Cartographer中global pose 和local pose 区别是什么
 
 在 Cartographer（一个用于实现 SLAM（Simultaneous Localization and Mapping）的库）中，术语 "global pose" 和 "local pose" 通常指的是机器人或传感器在不同坐标系中的位置和方向。理解这两个概念的区别对于理解 SLAM 系统的工作原理非常重要。
 
