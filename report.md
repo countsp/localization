@@ -27,15 +27,17 @@
 
 综上所述，GNSS的定位原理基于从卫星到接收器的信号传播时间测量，结合三角定位技术计算出接收器的精确位置。这种系统能够在全球范围内提供定位服务，广泛应用于导航、测绘、农业、海洋和航空等众多领域。
 
-### ROS中GNSS消息类型
+### 2.ROS中GNSS消息类型
 在 ROS（Robot Operating System）中处理 GNSS 数据时，通常使用特定的消息类型来封装这些数据。GNSS 数据可能包括位置、速度、方向、时间戳等信息。ROS 提供了几种标准消息类型来处理这类数据，以及允许用户根据需要自定义消息类型。
 #### 标准消息类型
+- sensor_msgs/NavSatFix:
 
-    sensor_msgs/NavSatFix:
-        这是最常用的消息类型，用于发布 GNSS 定位数据。
-        包含经度、纬度、海拔高度以及位置的协方差信息。
-        通常用于 GPS 和其他 GNSS 接收器的位置数据。
+    这是最常用的消息类型，用于发布 GNSS 定位数据。
+    包含经度、纬度、海拔高度以及位置的协方差信息。
+    通常用于 GPS 和其他 GNSS 接收器的位置数据。
 
-    sensor_msgs/NavSatStatus:
-        提供关于 GNSS 状态的信息，如服务状态和卫星使用情况。
-        可以与 NavSatFix 消息一起使用，提供更详细的定位信息。
+- sensor_msgs/NavSatStatus:
+    提供关于 GNSS 状态的信息，如服务状态和卫星使用情况。
+    可以与 NavSatFix 消息一起使用，提供更详细的定位信息。
+  
+![navsat](https://img-blog.csdnimg.cn/9386c260c42b4549be742bb1381dd8dd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5a2m5peg5q2i5aKD55qE5bCP6b6f,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center)
