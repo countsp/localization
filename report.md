@@ -105,7 +105,7 @@
 
 
 ### 3.常见的 GNSS 坐标系以及转换方式
-- WGS 84（世界大地坐标系1984）:
+- WGS 84（世界大地坐标系1984 LatlongALt）:
         GPS 系统使用的全球参考标准。
         定义了地球的形状和尺寸，提供了全球统一的经纬度和高度。
 
@@ -113,13 +113,10 @@
         以地球质心为原点，固定在地球上，随地球旋转。
         通常用 X、Y、Z 坐标表示位置。
 
-**转换方式**
-> // 将经纬度数据转换成ecef坐标系下的坐标  
+**Cartographer中WGS-ECEF转换方式**
+ 
 > Eigen::Vector3d LatLongAltToEcef(const double latitude, const double longitude,  
 >                                  const double altitude) {  
->   // note: 地固坐标系(Earth-Fixed Coordinate System)也称地球坐标系,   
->   // 是固定在地球上与地球一起旋转的坐标系.  
->   // 如果忽略地球潮汐和板块运动, 地面上点的坐标值在地固坐标系中是固定不变的.  
 > 
 >   // https://en.wikipedia.org/wiki/Geographic_coordinate_conversion#From_geodetic_to_ECEF_coordinates  
 >   
