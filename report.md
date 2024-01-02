@@ -44,15 +44,12 @@
 
 > \# Navigation Satellite fix for any Global Navigation Satellite System
 > 
-> \#
-> 
 > \# 使用 WGS 84 坐标系
 >  
 > \# header.stamp specifies the ROS time for this measurement (the corresponding satellite time may be reported using the sensor_msgs/TimeReference message).
 > 
 > \# header.stamp指定此测量的ROS时间（可以使用sensor_msgs/TimeReference消息报告相应的卫星时间）
 > 
->
 > \# header.frame_id is the frame of reference reported by the satellite receiver, usually the location of the antenna.  This is a Euclidean frame relative to the vehicle, not a reference ellipsoid.
 > 
 > \# header.frame_id 是卫星接收器报告的坐标系，通常是GPS天线的位置。
@@ -79,7 +76,7 @@
 > \# 海拔[m]。 正值高于WGS 84椭球（如果没有可用的海拔高度，则为NaN）。
 > 
 > **float64 altitude**
->  
+>
 > \# Position covariance [m^2] defined relative to a tangential plane through the reported position. The components are East, North, and Up (ENU), in row-major order.
 > 
 > \# 位置协方差[m ^ 2]: 相对于切线平面的位置协方差。 组件是East，North和Up（ENU），按行优先顺序排列。
@@ -89,7 +86,7 @@
 > \# 注意：此坐标系在极点处表现出奇异性。
 >  
 > **float64[9] position_covariance**
->  
+> 
 > \# If the covariance of the fix is known, fill it in completely. If the GPS receiver provides the variance of each measurement, put them along the diagonal. If only Dilution of Precision is available, estimate an approximate covariance from that.
 > 
 > \# 3 - 如果已知修正的协方差，请完全填写。
