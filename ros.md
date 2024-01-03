@@ -57,13 +57,18 @@ ros::Subscriber subscribe(const std::string& topic, uint32_t queue_size, void(T:
 ```
 
 M 是消息类型，例如 std_msgs::String、sensor_msgs::Image 等。
+
 topic 是你想订阅的话题名称。
+
 queue_size 是消息队列的大小。这个参数用于定义在处理消息之前可以缓存多少条消息。
+
 fp 是一个指向成员函数的指针，该函数会被调用来处理接收到的消息。这个函数的类型必须匹配消息类型。
+
 obj 是一个指向成员函数所属对象的指针。
+
 transport_hints 是可选的，用于配置底层的消息传输，如 TCP、UDP。
 
-```
+
 例子
 
 ```
