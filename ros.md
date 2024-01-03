@@ -58,7 +58,9 @@ ros::ServiceServer ros::NodeHandle::advertiseService(
 ```
 
 > service: 服务的名称。
+> 
 > srv_func: 服务处理函数，当服务请求到达时，这个函数被调用。
+> 
 > obj: 服务处理函数所属对象的指针，通常是 this
 
 **服务处理函数**
