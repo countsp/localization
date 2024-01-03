@@ -96,3 +96,34 @@ std::cout << "Subtraction: " << operation(5, 3) << std::endl;  // 输出: Subtra
 ```
 
 ---
+
+### Lambda
+```
+[捕获列表](参数列表) -> 返回类型 {
+    函数体
+};
+```
+    **捕获列表**：定义了 lambda 函数体内可以访问的外部变量。可以是值捕获、引用捕获或不捕获。
+    **参数列表**：与普通函数的参数列表类似。
+    **返回类型**：可以省略，编译器会自动推导。
+    **函数体**：执行 lambda 表达式时的代码。
+
+例子
+
+```
+auto add = [](int a, int b) {
+    return a + b;
+};
+std::cout << add(5, 3) << std::endl;  // 输出 8
+```
+
+### 值捕获
+
+```
+int x = 10;
+auto add_to_x = [x](int a) { return x + a; };
+std::cout << add_to_x(5) << std::endl;  // 输出 15
+```
+
+---
+
