@@ -43,3 +43,25 @@
   ```cpp
   ros::NodeHandle nh;
   ros::Publisher pub = nh.advertise<std_msgs::String>("chatter", 1000);
+
+---
+# createwalltimer()函数功能
+创建一个定时器（timer），它按照设定的时间间隔周期性地调用一个回调函数。这个功能在需要定期执行任务（如定期发送消息、更新状态或执行周期性检查）的场景中非常有用。
+```
+#include <ros/ros.h>
+
+void timerCallback(const ros::WallTimerEvent& event) {
+    // 执行定时任务
+}
+
+int main(int argc, char **argv) {
+    ros::init(argc, argv, "my_node");
+    ros::NodeHandle nh;
+
+    // 创建一个定时器，每秒钟触发一次
+    ros::WallTimer timer = nh.createWallTimer(ros::WallDuration(1.0), timerCallback);
+
+    ros::spin();
+
+    return 0;
+}
