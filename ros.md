@@ -55,15 +55,47 @@ ros::ServiceServer ros::NodeHandle::advertiseService(
   bool(ServiceClass::*srv_func)(RequestType&, ResponseType&),
   ServiceClass* obj
 );
+```
 
-service: 服务的名称。
-srv_func: 服务处理函数，当服务请求到达时，这个函数被调用。
-obj: 服务处理函数所属对象的指针，通常是 this
+> service: 服务的名称。
+> srv_func: 服务处理函数，当服务请求到达时，这个函数被调用。
+> obj: 服务处理函数所属对象的指针，通常是 this
 
 **服务处理函数**
 
 服务处理函数需要有特定的签名，它接受一个请求（RequestType）和一个响应（ResponseType），并返回一个布尔值。如果处理成功，返回 true；如果失败，则返回 false。
 
+```
+#include "ros/ros.h"
+#include "std_srvs/Empty.h"
+
+class MyServiceClass
+{
+public:
+  bool myServiceCallback(std_srvs::Empty::Request &req,
+                         std_srvs::Empty::Response &res)
+  {
+    ROS_INFO("Service called");
+    // 这里处理服务请求
+    return true;
+  }
+};
+
+int main(int argc, char **argv)
+{
+  ros::init(argc, argv, "my_service_node");
+  ros::NodeHandle nh;
+
+  MyServiceClass my_service_obj;
+
+  ros::ServiceServer service = nh.advertiseService("my_service", &MyServiceClass::myServiceCallback, &my_service_obj);
+
+  ros::spin();
+
+  return 0;
+}
+
+```
 ---
 
 ### createwalltimer()
