@@ -66,3 +66,33 @@ SubscribeWithHandler<sensor_msgs::LaserScan>(
 ```
 
 ---
+### 函数指针
+函数指针是 C++ 中的一种指针类型，它指向函数而不是数据。函数指针可以用来存储函数的地址，从而使得可以通过指针来调用函数。这在编程中特别有用，因为它允许将函数作为参数传递给其他函数，或者在运行时选择要调用的函数。
+
+```
+返回类型 (*指针名称)(参数类型1, 参数类型2, ...);
+```
+示例
+
+```
+int add(int a, int b) {
+    return a + b;
+}
+
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int (*operation)(int, int);
+
+// 将指针指向 add 函数
+operation = add;
+std::cout << "Addition: " << operation(5, 3) << std::endl;  // 输出: Addition: 8
+
+// 将指针指向 subtract 函数
+operation = subtract;
+std::cout << "Subtraction: " << operation(5, 3) << std::endl;  // 输出: Subtraction: 2
+
+```
+
+---
