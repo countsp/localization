@@ -107,7 +107,7 @@ std::cout << "Subtraction: " << operation(5, 3) << std::endl;  // 输出: Subtra
     **参数列表**：与普通函数的参数列表类似。
     **返回类型**：可以省略，编译器会自动推导。
     **函数体**：执行 lambda 表达式时的代码。
-
+```
 例子
 
 ```
@@ -117,7 +117,7 @@ auto add = [](int a, int b) {
 std::cout << add(5, 3) << std::endl;  // 输出 8
 ```
 
-### 值捕获
+值捕获
 
 ```
 int x = 10;
