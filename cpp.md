@@ -44,3 +44,25 @@
 9. 并发
 
     明确并且安全地使用多线程。
+---
+### 模板
+eg:
+
+```
+template <typename MessageType>
+::ros::Subscriber SubscribeWithHandler(
+    void (Node::*handler)(int, const std::string&,
+                          const typename MessageType::ConstPtr&),
+    const int trajectory_id, const std::string& topic,
+    ::ros::NodeHandle* const node_handle, Node* const node)
+```
+
+使用：
+
+```
+SubscribeWithHandler<sensor_msgs::LaserScan>(
+             &Node::HandleLaserScanMessage, trajectory_id, topic, &node_handle_,
+             this)
+```
+
+---
