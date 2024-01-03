@@ -126,3 +126,14 @@ std::cout << add_to_x(5) << std::endl;  // 输出 15
 
 ---
 
+### std::map中“map.at(key)”和"map[key]"异同
+在 C++ 中，std::map 的 at() 方法和 operator[]（即 map[key]）都用于访问键为 key 的元素，但它们在行为和用途上有一些重要的区别：
+
+`std::map::at(key)`
+
+    访问已存在的元素：如果键 key 存在于映射中，at() 返回对应的值的引用。
+
+    边界检查：如果键 key 不存在于映射中，at() 抛出 std::out_of_range 异常。
+
+    只用于访问：at() 不能用于插入新元素，它只用于访问或修改已存在的元素。
+---
