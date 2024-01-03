@@ -26,3 +26,19 @@
 #### 其他
 - **ok()**：检查 ROS 是否仍在正常运行。
 - **shutdown()**：关闭节点句柄。
+
+
+### advertise()和ros::Publisher的区别
+
+在 ROS（Robot Operating System）中，`advertise()` 方法和 `ros::Publisher` 类在发布消息时发挥着不同的作用。它们之间的区别主要在于它们的职责和如何在代码中使用。
+
+#### `advertise()` 方法
+- `advertise()` 是 `ros::NodeHandle` 类的一个成员方法，用于创建一个消息发布者（`ros::Publisher`）。
+- 当你调用 `advertise()` 时，你需要指定话题名称、队列大小和（可选的）回调函数。
+- 这个方法返回一个 `ros::Publisher` 对象，你可以使用这个对象来发布消息。
+- `advertise()` 方法主要用于设置发布者的参数并初始化发布者。
+
+  示例：
+  ```cpp
+  ros::NodeHandle nh;
+  ros::Publisher pub = nh.advertise<std_msgs::String>("chatter", 1000);
