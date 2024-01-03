@@ -45,7 +45,28 @@
   ros::Publisher pub = nh.advertise<std_msgs::String>("chatter", 1000);
 
 ---
-# createwalltimer()函数功能
+### advertiseService()
+在 ROS (Robot Operating System) 中，advertiseService() 方法用于创建一个服务服务器（service server）。这个方法使你的节点能夠响应来自客户端（service clients）的服务请求。
+以下是 advertiseService() 方法的基本语法：
+
+```
+ros::ServiceServer ros::NodeHandle::advertiseService(
+  const std::string& service, 
+  bool(ServiceClass::*srv_func)(RequestType&, ResponseType&),
+  ServiceClass* obj
+);
+
+service: 服务的名称。
+srv_func: 服务处理函数，当服务请求到达时，这个函数被调用。
+obj: 服务处理函数所属对象的指针，通常是 this
+
+**服务处理函数**
+
+服务处理函数需要有特定的签名，它接受一个请求（RequestType）和一个响应（ResponseType），并返回一个布尔值。如果处理成功，返回 true；如果失败，则返回 false。
+
+---
+
+### createwalltimer()
 创建一个定时器（timer），它按照设定的时间间隔周期性地调用一个回调函数。这个功能在需要定期执行任务（如定期发送消息、更新状态或执行周期性检查）的场景中非常有用。
 ```
 #include <ros/ros.h>
@@ -65,3 +86,5 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+
+---
