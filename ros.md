@@ -40,11 +40,57 @@
 - `advertise()` 方法主要用于设置发布者的参数并初始化发布者。
 
   示例：
-  ```cpp
+  
+  ```
   ros::NodeHandle nh;
   ros::Publisher pub = nh.advertise<std_msgs::String>("chatter", 1000);
+  ```
 
 ---
+
+### ::ros::NodeHandle::subscribe()
+
+```
+template<class M, class T>
+ros::Subscriber subscribe(const std::string& topic, uint32_t queue_size, void(T::*fp)(M), T* obj, 
+                          const ros::TransportHints& transport_hints = ros::TransportHints());
+```
+
+M 是消息类型，例如 std_msgs::String、sensor_msgs::Image 等。
+topic 是你想订阅的话题名称。
+queue_size 是消息队列的大小。这个参数用于定义在处理消息之前可以缓存多少条消息。
+fp 是一个指向成员函数的指针，该函数会被调用来处理接收到的消息。这个函数的类型必须匹配消息类型。
+obj 是一个指向成员函数所属对象的指针。
+transport_hints 是可选的，用于配置底层的消息传输，如 TCP、UDP。
+
+```
+例子
+
+```
+#include <ros/ros.h>
+#include <std_msgs/String.h>
+
+class MyNode {
+public:
+    void stringCallback(const std_msgs::String::ConstPtr& msg) {
+        ROS_INFO("Received: %s", msg->data.c_str());
+    }
+};
+
+int main(int argc, char **argv) {
+    ros::init(argc, argv, "my_node");
+    ros::NodeHandle nh;
+
+    MyNode myNode;
+    ros::Subscriber sub = nh.subscribe("chatter", 1000, &MyNode::stringCallback, &myNode);
+
+    ros::spin();
+
+    return 0;
+}
+```
+---
+
 ### advertiseService()
 在 ROS (Robot Operating System) 中，advertiseService() 方法用于创建一个服务服务器（service server）。这个方法使你的节点能夠响应来自客户端（service clients）的服务请求。
 以下是 advertiseService() 方法的基本语法：
