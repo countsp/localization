@@ -29,7 +29,7 @@
 
 ---
 
-### advertise()和ros::Publisher的区别
+### ::ros::NodeHandle::advertise()和ros::Publisher的区别
 
 在 ROS（Robot Operating System）中，`advertise()` 方法和 `ros::Publisher` 类在发布消息时发挥着不同的作用。它们之间的区别主要在于它们的职责和如何在代码中使用。
 
