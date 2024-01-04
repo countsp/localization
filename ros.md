@@ -175,12 +175,17 @@ int main(int argc, char **argv) {
 
 ---
 ### Rigid
-Rigid2：
-    使用 Eigen::Matrix<FloatType, 2, 1> 类型来表示二维空间中的平移向量。
-    Rigid2 类使用 Eigen::Rotation2D<FloatType> 来表示二维空间中的旋转。
-    这实际上是一个二维的向量，用于存储在二维空间（如平面）中的 x 和 y 坐标。
+**Rigid2：**
 
-Rigid3：
+    使用 Eigen::Matrix<FloatType, 2, 1> 类型来表示二维空间中的平移向量。
+    
+    Rigid2 类使用 Eigen::Rotation2D<FloatType> 来表示二维空间中的旋转。
+    
+    这实际上是一个二维的向量，用于存储在二维空间（如平面）中的 x 和 y 坐标。
+    
+**Rigid3：**
     使用 Eigen::Matrix<FloatType, 3, 1> 类型来表示三维空间中的平移向量。这是一个三维的向量，用于存储在三维空间中的 x、y 和 z 坐标。
+    
     Rigid3 类使用 Eigen::Quaternion<FloatType> 来表示三维空间中的旋转。
+    
     四元数是一种常用于三维旋转的数学工具，因为它避免了万向节锁的问题，并且计算效率较高。
