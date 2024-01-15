@@ -166,9 +166,9 @@ sudo apt-get install libyaml-cpp-dev
 
 ##### Install
 
-1.Edit the ```include/global_definition.h``` change the PROJECT_PATH to yours.
+1. Edit the ```include/global_definition.h``` change the PROJECT_PATH to yours.
 
-2.  
+2.   
 
 ```
 mkdir ins_eskf && cd ins_eskf
