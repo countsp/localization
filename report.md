@@ -141,11 +141,10 @@
 ## 15.JAN.2024
 ### 1.ins_eskf_kitti 框架跑通
 ![Screenshot from 2024-01-15 16-49-27](https://github.com/countsp/localization/assets/102967883/2632c858-ae3c-48bb-8f00-90061199767c)
+
 ![Screenshot from 2024-01-15 16-55-51](https://github.com/countsp/localization/assets/102967883/ab4dd370-08d5-472a-85e8-aa37d504875e)
 
 ### Dependency
-ROS-noetic
-
 Eigen:
 ``` 
 sudo apt-get install libeigen3-dev 
@@ -168,6 +167,7 @@ sudo apt-get install libyaml-cpp-dev
 ### Install
 
 1.Edit the ```include/global_definition.h``` change the PROJECT_PATH to yours.
+
 2.
 ```
 mkdir ins_eskf && cd ins_eskf
