@@ -143,8 +143,8 @@
 ![Screenshot from 2024-01-15 16-49-27](https://github.com/countsp/localization/assets/102967883/2632c858-ae3c-48bb-8f00-90061199767c)
 
 ![Screenshot from 2024-01-15 16-55-51](https://github.com/countsp/localization/assets/102967883/ab4dd370-08d5-472a-85e8-aa37d504875e)
-
-### Dependency
+#### Steps:
+##### Dependency
 Eigen:
 ``` 
 sudo apt-get install libeigen3-dev 
@@ -164,7 +164,7 @@ yaml-cpp:
 sudo apt-get install libyaml-cpp-dev
   ```
 
-### Install
+##### Install
 
 1.Edit the ```include/global_definition.h``` change the PROJECT_PATH to yours.
 
@@ -178,10 +178,10 @@ catkin_make_isolated
 ```
 catkin_make also viable
 
-### Sample datasets
+##### Sample datasets
 Using a Kitti Dataset provided online.You can download it from  [baidu net disk](https://pan.baidu.com/s/15V587gC7cC6YZp_250ShEQ) 提取码: wtu9.
 
-### Run the package
+##### Run the package
 
 Run the launch file:
 ```
