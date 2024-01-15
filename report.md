@@ -168,7 +168,8 @@ sudo apt-get install libyaml-cpp-dev
 
 1.Edit the ```include/global_definition.h``` change the PROJECT_PATH to yours.
 
-2.
+2.  
+
 ```
 mkdir ins_eskf && cd ins_eskf
 mkdir src && cd src
@@ -179,7 +180,9 @@ catkin_make_isolated
 catkin_make also viable
 
 ##### Sample datasets
-Using a Kitti Dataset provided online.You can download it from  [baidu net disk](https://pan.baidu.com/s/15V587gC7cC6YZp_250ShEQ) 提取码: wtu9.
+Using a Kitti Dataset provided online.
+
+You can download it from  [baidu net disk](https://pan.baidu.com/s/15V587gC7cC6YZp_250ShEQ) 提取码: wtu9.
 
 ##### Run the package
 
