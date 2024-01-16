@@ -193,7 +193,9 @@ roslaunch ins_eskf ins_eskf.launch
 
 ### 2-3 gps\imu\output发布速率、封装结构和内容
 gps: 10hz at /kitti/oxts/gps/fix
+
 imu: 100hz at /kitti/oxts/imu/extract
+
 output: 10hz at /kitti_gps_odometry
 
 ![Screenshot from 2024-01-16 08-58-42](https://github.com/countsp/localization/assets/102967883/e677783d-00b9-4fbb-b11d-fd0c857b5cb3)
