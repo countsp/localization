@@ -192,11 +192,18 @@ roslaunch ins_eskf ins_eskf.launch
 ```
 
 ### 2-3 gps\imu\output发布速率、封装结构和内容
+gps: 10hz at /kitti/oxts/gps/fix
+imu: 100hz at /kitti/oxts/imu/extract
+output: 10hz at /kitti_gps_odometry
+
 ![Screenshot from 2024-01-16 08-58-42](https://github.com/countsp/localization/assets/102967883/e677783d-00b9-4fbb-b11d-fd0c857b5cb3)
 
 ### 5.任意一种INS融合方法
 KF-GINS： An EKF-Based GNSS/INS Integrated Navigation System 
-https://github.com/countsp/KF-GINS
+>https://github.com/countsp/KF-GINS
+
+command:
+> ./bin/KF-GINS ./dataset/kf-gins.yaml
 
 ![Screenshot from 2024-01-16 09-12-15](https://github.com/countsp/localization/assets/102967883/a4e7b0ff-66d3-4705-b5d8-200102b026f5)
 
