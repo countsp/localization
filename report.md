@@ -223,4 +223,141 @@ command:
 5. **迭代和收敛判定**：重复步骤2到步骤4，直到达到预定的迭代次数，或者变换更新量低于某个阈值，表明已经收敛到最优解。
 
 
+#### 基于优化
+```
+#include <iostream>
+#include <pcl/io/pcd_io.h>
+#include <pcl/point_types.h>
+#include <pcl/registration/icp.h>
+#include <ceres/ceres.h>
 
+using PointCloud = pcl::PointCloud<pcl::PointXYZ>;
+
+// 定义优化问题中的代价函数
+struct ICPError {
+    ICPError(double x, double y, double z, const pcl::PointXYZ& target)
+        : x_(x), y_(y), z_(z), target_(target) {}
+
+    template <typename T>
+    bool operator()(const T* const rotation, const T* const translation, T* residual) const {
+        T p[3];
+        // 应用旋转和平移
+        p[0] = rotation[0] * T(x_) + rotation[1] * T(y_) + rotation[2] * T(z_) + translation[0];
+        p[1] = rotation[3] * T(x_) + rotation[4] * T(y_) + rotation[5] * T(z_) + translation[1];
+        p[2] = rotation[6] * T(x_) + rotation[7] * T(y_) + rotation[8] * T(z_) + translation[2];
+
+        // 计算残差
+        residual[0] = p[0] - T(target_.x);
+        residual[1] = p[1] - T(target_.y);
+        residual[2] = p[2] - T(target_.z);
+        return true;
+    }
+
+    static ceres::CostFunction* Create(const double x, const double y, const double z, 
+                                       const pcl::PointXYZ& target) {
+        return (new ceres::AutoDiffCostFunction<ICPError, 3, 9, 3>(
+            new ICPError(x, y, z, target)));
+    }
+
+    double x_, y_, z_;
+    pcl::PointXYZ target_;
+};
+
+int main(int argc, char** argv) {
+    // 加载源点云和目标点云
+    PointCloud::Ptr src(new PointCloud);
+    PointCloud::Ptr tgt(new PointCloud);
+    pcl::io::loadPCDFile("source.pcd", *src);
+    pcl::io::loadPCDFile("target.pcd", *tgt);
+
+    // 初始化优化问题
+    ceres::Problem problem;
+
+    // 初始化变换参数（旋转矩阵和平移向量）
+    double rotation[9] = {1, 0, 0, 0, 1, 0, 0, 0, 1};  // 单位矩阵
+    double translation[3] = {0, 0, 0};
+
+    // 添加代价函数
+    for (const auto& point : src->points) {
+        // 找到最近的目标点云中的点
+        pcl::PointXYZ closest_tgt = /* 方法找到最近点 */;
+        problem.AddResidualBlock(
+            ICPError::Create(point.x, point.y, point.z, closest_tgt),
+            nullptr, rotation, translation);
+    }
+
+    // 配置求解器并解决问题
+    ceres::Solver::Options options;
+    options.linear_solver_type = ceres::DENSE_QR;
+    options.minimizer_progress_to_stdout = true;
+    ceres::Solver::Summary summary;
+    ceres::Solve(options, &problem, &summary);
+
+    std::cout << summary.BriefReport() << "\n";
+
+    // 应用变换到源点云
+    // ...
+
+    // 保存配准后的点云
+    pcl::io::savePCDFile("registered_cloud.pcd", *src);
+
+    return 0;
+}
+```
+
+#### 基于SVD 
+PCL（Point Cloud Library）中的IterativeClosestPoint类来进行点云配准。
+
+在PCL的IterativeClosestPoint实现中，它可能内部使用SVD来计算每次迭代中的最优刚体变换（即旋转和平移），但这是在库内部实现的，对于库的使用者来说是透明的。
+```
+#include <iostream>
+#include <pcl/io/pcd_io.h>
+#include <pcl/point_types.h>
+#include <pcl/registration/icp.h>
+
+int main(int argc, char** argv) {
+    // 定义点云类型
+    using PointCloud = pcl::PointCloud<pcl::PointXYZ>;
+
+    // 创建两个点云对象
+    PointCloud::Ptr cloud_src(new PointCloud);  // 源点云
+    PointCloud::Ptr cloud_tgt(new PointCloud);  // 目标点云
+    PointCloud::Ptr cloud_aligned(new PointCloud); // 配准后的点云
+
+    // 加载点云文件
+    if (pcl::io::loadPCDFile<pcl::PointXYZ>("source.pcd", *cloud_src) == -1) {
+        PCL_ERROR("Couldn't read source file\n");
+        return -1;
+    }
+    if (pcl::io::loadPCDFile<pcl::PointXYZ>("target.pcd", *cloud_tgt) == -1) {
+        PCL_ERROR("Couldn't read target file\n");
+        return -1;
+    }
+
+    // 创建ICP对象，设置参数
+    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+    icp.setInputSource(cloud_src);
+    icp.setInputTarget(cloud_tgt);
+    // 设置ICP算法参数，如最大迭代次数和收敛阈值等
+    icp.setMaximumIterations(50);
+    icp.setTransformationEpsilon(1e-8);
+    icp.setMaxCorrespondenceDistance(0.05);
+
+    // 执行ICP配准
+    icp.align(*cloud_aligned);
+
+    if (icp.hasConverged()) {
+        std::cout << "ICP has converged, score is " << icp.getFitnessScore() << std::endl;
+        std::cout << "ICP transformation matrix:\n";
+        std::cout << icp.getFinalTransformation() << std::endl;
+
+        // 保存配准后的点云
+        pcl::io::savePCDFile("aligned_cloud.pcd", *cloud_aligned);
+    } else {
+        PCL_ERROR("ICP did not converge.\n");
+        return -1;
+    }
+
+    return 0;
+}
+```
