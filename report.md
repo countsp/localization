@@ -361,3 +361,4 @@ int main(int argc, char** argv) {
     return 0;
 }
 ```
+First, download the datasets [room_scan1.pcd](https://raw.github.com/PointCloudLibrary/data/master/tutorials/room_scan1.pcd) and [room_scan2.pcd](https://raw.github.com/PointCloudLibrary/data/master/tutorials/room_scan2.pcd) and save them to your disk. These point clouds contain 360 degree scans of the same room from different perspectives.
