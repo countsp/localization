@@ -487,4 +487,4 @@ summarized from (Scan Context 介绍及理解)[https://zhuanlan.zhihu.com/p/3933
 Scan Context 应用于基于3D点云的重定位和场景识别，主要思想是将场景3维信息压缩，将笛卡尔坐标系的信息转换到极坐标系下计算。
 
 优势是高效利用场景点云分布特征，引入"旋转不变性"描述子，快速搜索。
-![https://pic2.zhimg.com/80/v2-afe2b483df722bf2cc03b07fa9c8cf95_720w.webp]
+![scan context](https://pic2.zhimg.com/80/v2-afe2b483df722bf2cc03b07fa9c8cf95_720w.webp)
