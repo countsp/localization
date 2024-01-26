@@ -137,3 +137,46 @@ std::cout << add_to_x(5) << std::endl;  // 输出 15
 
     只用于访问：at() 不能用于插入新元素，它只用于访问或修改已存在的元素。
 ---
+
+### std::copy_backward 
+std::copy_backward 是 C++ 标准库中的一个函数，用于将一个元素范围内的元素复制到另一个范围，同时保持元素的顺序不变。与 std::copy 不同，std::copy_backward 从范围的末尾开始复制，这对于在目标范围有重叠的情况下非常有用，因为它可以防止源范围的元素被过早覆盖。
+
+```
+std::copy_backward(InputIt first, InputIt last, OutputIt d_last);
+```
+first 和 last 分别是要复制的元素范围的起始和结束迭代器。
+d_last 是目标范围的结束迭代器。
+
+函数将 [first, last) 范围内的元素复制到以 d_last 结束的范围中。复制是从 last 指向的最后一个元素开始的，复制到 d_last 之前的位置，并从后向前继续进行。
+
+example: /home/chopin/autoware/autoware.universe/localization/ekf_localizer/src/ekf_module.cpp
+
+```
+//更新 accumulated_delay_times_ 容器，将新的延迟时间 dt 累积到现有的延迟时间中
+void EKFModule::accumulate_delay_time(const double dt)
+{
+  // Shift the delay times to the right.
+  std::copy_backward(
+    accumulated_delay_times_.begin(), accumulated_delay_times_.end() - 1,
+    accumulated_delay_times_.end());
+
+  // Add a new element (=0) and, and add delay time to the previous elements.
+  accumulated_delay_times_.front() = 0.0;
+  for (size_t i = 1; i < accumulated_delay_times_.size(); ++i) {
+    accumulated_delay_times_[i] += dt;
+  }
+}
+```
+### constexpr和const int有什么区别?
+#### 初始化时机：
+const 变量可以在运行时初始化，而 constexpr 变量必须在编译时就确定其值。
+#### 用途：
+const 更多地用于防止变量被修改，适用于运行时的值；constexpr 用于定义编译时常量，适用于需要编译时确定值的场景。
+
+
+```
+const int runtimeConst = someFunction();  // 可以在运行时初始化
+constexpr int compileTimeConst = 5 * 2;   // 必须在编译时就能计算出结果
+```
+
+在实际应用中，选择 const 还是 constexpr 取决于你的需求：如果你需要在编译时确定变量的值，或者变量的值是通过计算得到的编译时常量，那么应该使用 constexpr。如果只是想防止变量在运行时被修改，使用 const 就足够了。
