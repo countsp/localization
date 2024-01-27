@@ -50,32 +50,24 @@ geometry_msgs::msg::PoseStamped 是 ROS 2（Robot Operating System 2）中的一
     
     角速度（angular）包含围绕三个轴（x、y、z）的旋转速度分量，通常用于描述旋转运动。
 
----
+--- 
 
-### static_cast<double>
-static_cast<double> () 是一个类型转换表达式，它将变量从它的原始类型转换为 double 类型。
+### declare_parameter
+在ROS 2中，参数是一种节点可以使用的配置选项。这些参数可以在节点运行时动态地设置和更改。declare_parameter 函数不仅声明了一个新的参数，还可以用来获取参数的值。如果参数已经在参数服务器上设置，它将返回该值；如果没有设置，它将返回你提供的默认值。
 
-static_cast 是 C++ 中四种类型转换运算符之一，用于执行非多态类型的转换。这意味着你可以用它来转换基本数据类型（如整数和浮点数），以及向上或向下转换非多态类的对象。
+this->declare_parameter<Type>("parameter_name", default_value) 中
+Type：参数的数据类型（例如，int64_t, double, std::string等）。
+"parameter_name"：参数的名称。
+default_value：如果参数未在参数服务器上设置，则使用的默认值。
 
-##### 示例和用途
-
+### create_callback_group
+example: /home/chopin/autoware.universe.read/localization/ndt_scan_matcher/src/ndt_scan_matcher_core.cpp
 ```
-size_t smoothing_step = 5;
-double result = static_cast<double>(smoothing_step) / 2.0;
+  //在同一时间内只有一个回调可以被执行。
+  //这有助于避免多个回调同时执行时可能出现的资源竞争或数据不一致的问题
+  timer_callback_group_ = this->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
+  rclcpp::CallbackGroup::SharedPtr initial_pose_callback_group =
+    this->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
+  rclcpp::CallbackGroup::SharedPtr sensor_callback_group =
+    this->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
 ```
-在这个例子中，如果没有 static_cast<double>(smoothing_step)，则 smoothing_step / 2.0 的结果会首先执行整数除法，然后将结果转换为 double，这可能不是预期的行为。通过使用 static_cast<double>，确保 smoothing_step 以 double 类型参与运算，从而获得正确的浮点数除法结果。
-
----
-#### ()[]=""
-```
-state_ptr_(new std::map<std::string, std::string>)
-(*state_ptr_)["state"] = "Initializing";
-```
-
-这段代码是C++中的一种特殊语法，用于访问和修改一个指针指向的对象中的元素。在这个特定的例子中，state_ptr_ 是指向 std::map<std::string, std::string> 类型对象的指针。
-
-(*state_ptr_)：首先，使用 * 运算符来解引用 state_ptr_ 指针。这意味着它访问指针指向的实际 std::map 对象。
-
-["state"] = "Initializing";：然后，使用 std::map 的 [] 运算符来访问键为 "state" 的元素。如果这个键在map中不存在，它将自动创建一个新的键值对。接着，将字符串 "Initializing" 赋值给这个键对应的值。
-
-
