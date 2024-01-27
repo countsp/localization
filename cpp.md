@@ -201,3 +201,34 @@ NDTScanMatcher 类继承自 Node 类
 class NDTScanMatcher : public rclcpp::Node
 ```
 这里的 Node("ndt_scan_matcher") 调用的是 Node 类的构造函数，并将 "ndt_scan_matcher" 作为参数传递给它。这意味着 NDTScanMatcher 是一个 ROS 节点，其节点名称被设置为 "ndt_scan_matcher"。
+
+---
+
+### static_cast<double>
+static_cast<double> () 是一个类型转换表达式，它将变量从它的原始类型转换为 double 类型。
+
+static_cast 是 C++ 中四种类型转换运算符之一，用于执行非多态类型的转换。这意味着你可以用它来转换基本数据类型（如整数和浮点数），以及向上或向下转换非多态类的对象。
+
+##### 示例和用途
+
+```
+size_t smoothing_step = 5;
+double result = static_cast<double>(smoothing_step) / 2.0;
+```
+在这个例子中，如果没有 static_cast<double>(smoothing_step)，则 smoothing_step / 2.0 的结果会首先执行整数除法，然后将结果转换为 double，这可能不是预期的行为。通过使用 static_cast<double>，确保 smoothing_step 以 double 类型参与运算，从而获得正确的浮点数除法结果。
+
+---
+### ()[]=""
+```
+state_ptr_(new std::map<std::string, std::string>)
+(*state_ptr_)["state"] = "Initializing";
+```
+
+这段代码是C++中的一种特殊语法，用于访问和修改一个指针指向的对象中的元素。在这个特定的例子中，state_ptr_ 是指向 std::map<std::string, std::string> 类型对象的指针。
+
+(*state_ptr_)：首先，使用 * 运算符来解引用 state_ptr_ 指针。这意味着它访问指针指向的实际 std::map 对象。
+
+["state"] = "Initializing";：然后，使用 std::map 的 [] 运算符来访问键为 "state" 的元素。如果这个键在map中不存在，它将自动创建一个新的键值对。接着，将字符串 "Initializing" 赋值给这个键对应的值。
+
+---
+
