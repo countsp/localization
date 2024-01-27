@@ -180,3 +180,24 @@ constexpr int compileTimeConst = 5 * 2;   // 必须在编译时就能计算出�
 ```
 
 在实际应用中，选择 const 还是 constexpr 取决于你的需求：如果你需要在编译时确定变量的值，或者变量的值是通过计算得到的编译时常量，那么应该使用 constexpr。如果只是想防止变量在运行时被修改，使用 const 就足够了。
+
+### 继承
+example:/home/chopin/autoware.universe.read/localization/ndt_scan_matcher/src/ndt_scan_matcher_core.cpp中
+```
+NDTScanMatcher::NDTScanMatcher()
+: Node("ndt_scan_matcher"),
+  tf2_broadcaster_(*this),
+  tf2_buffer_(this->get_clock()),
+  tf2_listener_(tf2_buffer_),
+  ndt_ptr_(new NormalDistributionsTransform),
+  state_ptr_(new std::map<std::string, std::string>),
+  output_pose_covariance_({}),
+  regularization_enabled_(declare_parameter<bool>("regularization_enabled")),
+  is_activated_(false)
+```
+
+NDTScanMatcher 类继承自 Node 类
+```
+class NDTScanMatcher : public rclcpp::Node
+```
+这里的 Node("ndt_scan_matcher") 调用的是 Node 类的构造函数，并将 "ndt_scan_matcher" 作为参数传递给它。这意味着 NDTScanMatcher 是一个 ROS 节点，其节点名称被设置为 "ndt_scan_matcher"。
