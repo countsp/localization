@@ -232,3 +232,28 @@ state_ptr_(new std::map<std::string, std::string>)
 
 ---
 
+### mutex互斥锁
+在类或函数中，定义一个 std::mutex 类型的变量。这个互斥锁用来保护共享资源。
+```
+std::mutex mtx;
+```
+使用 std::lock_guard:
+当需要访问被互斥锁保护的共享资源时，可以创建一个 std::lock_guard 对象。在构造函数中传递互斥锁作为参数。
+
+std::lock_guard 构造时会自动锁定互斥锁，当它的作用域结束（例如函数返回或到达代码块的末尾）时，它会自动解锁互斥锁。
+
+```
+void function() {
+    std::lock_guard<std::mutex> lock_name(mtx);
+    // 代码区域，访问或修改共享资源
+}
+
+```
+
+example:/home/chopin/autoware.universe.read/localization/ndt_scan_matcher/src/ndt_scan_matcher_core.cpp
+```
+std::lock_guard<std::mutex> lock(latest_ekf_position_mtx_);
+latest_ekf_position_ = initial_pose_msg_ptr->pose.pose.position;
+```
+---
+
