@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-04T02:16:39.690Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="nK3HXBttyTkJzXWEIETz" version="23.0.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2024-02-04T03:15:35.715Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="sFMFfefKoRksh7KCqJam" version="23.0.2" type="github" pages="2">
   <diagram name="Page-1" id="zHDBDDsMhPQAc9DJe7pO">
-    <mxGraphModel dx="485" dy="1591" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="572" dy="1679" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -401,13 +401,22 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="JSvuS2QysIrNOJd6ZCNf-39" value="&lt;b&gt;input/odom&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="4270" y="-970" width="90" height="80" as="geometry" />
+          <mxGeometry x="4270" y="-980" width="90" height="80" as="geometry" />
         </mxCell>
         <mxCell id="JSvuS2QysIrNOJd6ZCNf-40" value="&lt;b&gt;debug/ellipse_marker&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="4170" y="-800" width="150" height="80" as="geometry" />
         </mxCell>
         <mxCell id="JSvuS2QysIrNOJd6ZCNf-41" value="&lt;b&gt;/diagnostics&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="4330" y="-800" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-43" value="client_ekf_trigger_" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4520" y="-870" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-46" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="JSvuS2QysIrNOJd6ZCNf-45" target="JSvuS2QysIrNOJd6ZCNf-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-45" value="ekf_trigger_node" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4497.21" y="-940" width="185.59" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
