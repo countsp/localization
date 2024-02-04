@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-01T06:57:27.269Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="3vZ4XvjCxGDyg20NHJdc" version="23.0.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2024-02-04T02:16:39.690Z" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0" etag="nK3HXBttyTkJzXWEIETz" version="23.0.2" type="github" pages="2">
   <diagram name="Page-1" id="zHDBDDsMhPQAc9DJe7pO">
-    <mxGraphModel dx="2573" dy="3800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="485" dy="1591" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -342,6 +342,72 @@
             <mxPoint x="3250" y="-290" as="sourcePoint" />
             <mxPoint x="3300" y="-340" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-24" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="JSvuS2QysIrNOJd6ZCNf-18" target="JSvuS2QysIrNOJd6ZCNf-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-18" value="geo_pose_projector" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2870" y="-850" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-19" value="&lt;b&gt;sub_map_projector_info_&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2740" y="-960" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-22" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="JSvuS2QysIrNOJd6ZCNf-20" target="JSvuS2QysIrNOJd6ZCNf-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-20" value="&lt;b&gt;input_geo_pose&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2950" y="-960" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.529;entryY=-0.03;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="JSvuS2QysIrNOJd6ZCNf-19" target="JSvuS2QysIrNOJd6ZCNf-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-23" value="&lt;b&gt;output_pose&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2885" y="-780" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-27" value="ar_tag_based_localizer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3530" y="-770" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-28" value="&lt;b&gt;~/input/lanelet2_map&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3380" y="-870" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-29" value="&lt;b&gt;~/input/image&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3530" y="-870" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-30" value="&lt;b&gt;~/input/camera_info&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3665" y="-870" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-31" value="&lt;b&gt;~/input/ekf_pose&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3810" y="-870" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-32" value="&lt;b&gt;~/output/pose_with_covariance&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3310" y="-710" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-34" value="&lt;b&gt;~/debug/image&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3520" y="-710" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-35" value="&lt;b&gt;~/debug/mappped_tag&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3660" y="-710" width="155.8" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-36" value="&lt;b&gt;~/debug/detected_tag&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3825" y="-710" width="155.8" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-37" value="&lt;b&gt;/diagnostics&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3990" y="-710" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-38" value="localization_error_monitor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4200" y="-870" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-42" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="JSvuS2QysIrNOJd6ZCNf-39" target="JSvuS2QysIrNOJd6ZCNf-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-39" value="&lt;b&gt;input/odom&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4270" y="-970" width="90" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-40" value="&lt;b&gt;debug/ellipse_marker&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4170" y="-800" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JSvuS2QysIrNOJd6ZCNf-41" value="&lt;b&gt;/diagnostics&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4330" y="-800" width="100" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
