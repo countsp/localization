@@ -33,3 +33,15 @@ lanelet::PolygonLayer在Lanelet2库中封装了地图中多边形区域的信息
 **元数据**：除了地理信息和属性外，lanelet::PolygonLayer还可以包含其他元数据，如创建时间、作者信息或用于特定应用的自定义数据。
 
 #### lanelet::PolygonLayer是Lanelet2地图模型的一部分，与道路（lanelets）、交叉口（intersections）等其他元素一起，为自动驾驶系统提供了一个全面的道路和环境表示。通过使用这些多边形层，自动驾驶系统可以更好地理解和解释地图上的非道路区域，为路径规划和决策提供支持。
+
+--- 
+### Eigen::Affine3f
+
+Eigen::Affine3f = Eigen::Translation3f *  Eigen::Quaternionf
+
+---
+
+### Sophus::SE3f
+Eigen::Affine3f = {Eigen::Quaternionf, Eigen::Translation3f }
+
+---
