@@ -173,6 +173,30 @@ int main(int argc, char **argv) {
     return 0;
 }
 ```
+---
+
+spin与spinonce区别
+spin后进入循环，不执行后续语句，故后面一般只有return 0
+spinonce触发一个callback函数
+
+例如
+[A-loam 的 代码中](https://github.com/countsp/A-LOAM/blob/devel/src/laserOdometry.cpp)
+```
+ros::Subscriber subCornerPointsSharp = nh.subscribe<sensor_msgs::PointCloud2>("/laser_cloud_sharp", 100, laserCloudSharpHandler);
+
+...
+...
+...
+
+while (ros::ok())
+    {
+        ros::spinOnce();
+
+        if (!cornerSharpBuf.empty() && !cornerLessSharpBuf.empty() &&
+            !surfFlatBuf.empty() && !surfLessFlatBuf.empty() &&
+            !fullPointsBuf.empty())
+
+```
 
 ---
 ### Rigid
