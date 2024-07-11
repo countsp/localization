@@ -13,22 +13,33 @@
 
 我们知道，如果随机变量X满足正态分布X∼N(μ,σ),则其概率密度函数为：
 
+![image](https://github.com/countsp/localization/assets/102967883/36dd60b3-58e5-455b-8a26-645ca9b49b5f)
+
+
 对于多元正态分布而言，其概率密度函数可以表示为：
+
+![image](https://github.com/countsp/localization/assets/102967883/9b2356a1-3c32-4a65-a26e-e103629d9133)
 
 ## 2.1. NDT算法流程
 
 将参考点云网格化，计算每个网格的概率密度函数：
 
+![image](https://github.com/countsp/localization/assets/102967883/ebba1436-180e-4e66-9a41-46f1b06b90e2)
+
 网格的概率密度函数则为：
+
+![image](https://github.com/countsp/localization/assets/102967883/64a5dcde-2914-4af7-b61a-caa2ee32d59e)
 
 ## 2.2. 变换参数和最大似然
 
 我们需要优化的参数就是对当前点云的坐标变换（旋转，平移等），转换函数表示使用姿态变换\vec{p}来变换\vec{x_{k}}，结合之前的一组状态密度函数，那么最好的变换参数\vec{p}应该是最大化似然函数的姿态变换：
 
+![image](https://github.com/countsp/localization/assets/102967883/798bac56-a9af-4fb0-99f1-e561a0bacf21)
+
  那么最大化似然也就相当于最小化负对数似然 −logΘ;
 
-                  
-
+![image](https://github.com/countsp/localization/assets/102967883/cab8c6f1-e2a0-453f-8238-7b4c954acd9a)
+             
 就到了我们最熟悉的最优化的部分了。
 
 现在的任务就是使用优化算法来调整变换参数\vec{p} ​ 来最小化这个负对数似然。NDT算法使用牛顿法进行参数优化。
@@ -49,8 +60,7 @@
  
 using namespace std::chrono_literals;
  
-int
-main ()
+int main ()
 {
   // Loading first scan of room.
   pcl::PointCloud<pcl::PointXYZ>::Ptr target_cloud (new pcl::PointCloud<pcl::PointXYZ>);
