@@ -1,3 +1,4 @@
+[ref](https://www.bilibili.com/video/BV1iW421R7gy/?spm_id_from=333.999.0.0&vd_source=e0dc0ee350340932342c58cb327ec5a2)
 # icp
 
 ## 点点匹配
@@ -38,3 +39,8 @@
 
 ## 点面匹配
 ![Screenshot from 2024-07-12 10-05-59](https://github.com/user-attachments/assets/a9001522-1636-44e9-a652-690971b423a9)
+
+
+# 三种icp区别
+误差的构造
+ 
