@@ -1,5 +1,5 @@
 # icp
-
+## 点到点
 ![Screenshot from 2024-07-12 08-52-39](https://github.com/user-attachments/assets/1146e3c7-ec3b-4d11-a181-9b76b400c55c)
 
 注意：
@@ -19,6 +19,10 @@
 
 有置信度高的先验时，建立权重矩阵
 
-## 求雅各比矩阵
+## 求残差分别 对R t的雅各比矩阵
 
-![Screenshot from 2024-07-12 09-26-51](https://github.com/user-attachments/assets/2f766c44-8443-474f-abfb-59551bea69c7)
+![Screenshot from 2024-07-12 09-32-54](https://github.com/user-attachments/assets/adc1c9fb-9ff0-4f73-acbe-5b37c5bf21da)
+
+
+## 点线匹配
+![Screenshot from 2024-07-12 09-57-10](https://github.com/user-attachments/assets/926b53fe-474e-421a-ad54-fb7f275c6780)
