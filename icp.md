@@ -18,3 +18,6 @@
 鲁棒核函数
 
 有置信度高的先验时，建立权重矩阵
+
+## 求雅各比矩阵
+![Screenshot from 2024-07-12 08-52-39](https://github.com/user-attachments/assets/06fda178-5f04-4eff-9f8e-cc074b5e8d26)
