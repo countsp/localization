@@ -42,5 +42,5 @@
 
 
 # 三种icp区别
-误差的构造
- 
+
+![Screenshot from 2024-07-12 10-11-33](https://github.com/user-attachments/assets/7db3758e-af39-4ce1-af96-0e7dc0527a84)
